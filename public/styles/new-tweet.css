@@ -1,0 +1,41 @@
+.container {
+  background-color: inherit;
+}
+
+.form {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  width: 100%;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+input[type=submit] {
+  background-color: #4152A1;
+  color: white;
+  font-family: Bungee;
+  text-align: left;
+
+}
+span.counter {
+  float: right;
+  color: black;
+  font-family: Bungee;
+  margin-right: 0.5em;
+}
+
+
+
+/* <form>
+  <textarea name="text" placeholder="What are you humming about?"></textarea>
+  <input type="submit" value="Tweet">
+  <span class="counter">140</span>
+</form> */
