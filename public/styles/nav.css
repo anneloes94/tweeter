@@ -1,0 +1,17 @@
+.nav {
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  background-color:  #4056A1;
+  padding: 1.5em;
+  z-index: 20;
+}
+
+#title {
+  color: #FFFFFF;
+}
+
+
+.nav span{
+  font-family: Bungee;
+}
