@@ -34,6 +34,16 @@ $(document).ready(function() {
 
   })
 
+  // fetches tweets from /tweets page => unsure if this works?
+  const loadTweets = () => {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+      data: tweets.serialize()
+    })
+      .then(renderTweets(data), console.log("Boohoo"))
+  }
+
   // creates one tweet element
   const createTweetElement = (tweet) => {
     const {
