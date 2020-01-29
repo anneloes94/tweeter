@@ -1,54 +1,71 @@
 $(document).ready(function() {
 
-  const $container = $('.container');
+  const timeBetween = (date) => {
+    const msPerDay = 1000 * 60 * 60 * 24
+    let currentDate = new Date()
+    const diffInTime = (currentDate - date) / msPerDay
+    if (diffInTime >= 365) {
+      return Math.floor(diffInTime / 365) + " years ago"
+    } else if (diffInTime >= 1) {
+      return Math.floor(diffInTime) + " days ago"
+    } else {
+      return Math.floor(diffInTime*24) + " hours ago"
+    }
+  }
 
-  // Registers and pushes new Tweet
-  $container.find('form').on('submit', (e) => {
-    e.preventDefault();
-      const $form = $(e.target);
-      const $textbox = $form.find('#tweetContent')
-      const $tweet = $textbox.val();
-      // const $newTweet = $('<article>').addClass('tweet').text($tweet);
+  console.log(new Date())
 
-      $article = $('<article>').addClass('tweet')
-      $header = $('<header>').text("AUTHOR")
-      $p = $('<p>').text($tweet)
-      $footer = $('<footer>').text("7 days ago")
-      $article.append($header)
-              .append($p)
-              .append($footer);
+  const createTweetElement = (tweetData) => {
+    const tweetArray = []
+    for (tweet of tweetData) {
+      const {
+        name,
+        avatars,
+        handle,
+      } = tweet.user
 
-      // <article>
-      //   <header> 
-      //     Author
-      //   </header>
-      //   <p>
-      //   $newTweet
-      //   </p>
-      //   <footer>
-      //     7 days ago
-      //   </footer>
-      // </article>
+      const { text } = tweet.content
 
-      $('main #tweetSection').append($article);
+      const { created_at } = tweet
+    
+
+      tweetArray.push(`
+      <article class="tweet">
+        <header>
+          ${name}
+          ${avatars}
+          ${handle}
+        </header>
+        <p>
+          ${text}
+        </p>
+        <footer>
+          ${timeBetween(new Date(created_at))}
+        </footer>
+      `)
+    }
+    return tweetArray;
+  }
+
+    // Test / driver code (temporary). Eventually will get this from the server.
+  const tweetData = [{
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png",
+          "handle": "@SirIsaac"
+        },
+      "content": {
+          "text": "If I have seen further it is by standing on the shoulders of giants"
+        },
+      "created_at": 1461116232227
+   }]
+  
+  const $tweet = createTweetElement(tweetData);
+  
+  // Test / driver code (temporary)
+  console.log($tweet); // to see what it looks like
+  $('main #tweetSection').append($tweet); // to add it to the page so we can make sure it's   got all the right elements, classes, etc.
+
+
+      // $('main #tweetSection').append($article);
   })
-
-  // wteet element changes when hovering over it
-
-  // console.log("Hello")
-
-  // const $tweetArticle = $('<article>').find('.tweet')
-
-  //css pseudoclass
-
-  // $tweetArticle.hover(
-  //   function() {
-  //     let $tweetArticle = $('<article>').find('.tweet')
-  //     $tweetArticle.css('color', 'black')
-  //     console.log($(this))
-  //     $(this).css('box-shadow', '5px 5px lightskyblue')
-  //   }, function() {
-  //     $(this).css('article.tweet')
-  //   }
-  // )
-});
