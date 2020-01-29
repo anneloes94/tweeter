@@ -9,6 +9,12 @@
   padding: 1em;
   width: 70%;
   margin: 1em;
+  opacity: 0.8;
+}
+
+article.tweet:hover{
+  opacity: 1;
+  box-shadow: 5px 5px #5788AB;
 }
 
 article.tweet header{
@@ -29,3 +35,4 @@ article.tweet footer{
   font-size: 300;
   font-weight: 300;
 }
+

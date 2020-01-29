@@ -35,18 +35,20 @@ $(document).ready(function() {
 
   // wteet element changes when hovering over it
 
-  console.log("Hello")
+  // console.log("Hello")
 
-  const $tweetArticle = $('<article>').find('.tweet')
+  // const $tweetArticle = $('<article>').find('.tweet')
 
-  $tweetArticle.hover(
-    function() {
-      let $tweetArticle = $('<article>').find('.tweet')
-      $tweetArticle.css('color', 'black')
-      console.log($(this))
-      $(this).css('box-shadow', '5px 5px lightskyblue')
-    }, function() {
-      $(this).css('article.tweet')
-    }
-  )
+  //css pseudoclass
+
+  // $tweetArticle.hover(
+  //   function() {
+  //     let $tweetArticle = $('<article>').find('.tweet')
+  //     $tweetArticle.css('color', 'black')
+  //     console.log($(this))
+  //     $(this).css('box-shadow', '5px 5px lightskyblue')
+  //   }, function() {
+  //     $(this).css('article.tweet')
+  //   }
+  // )
 });
