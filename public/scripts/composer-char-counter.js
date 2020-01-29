@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  console.log("Char counter is loaded into HTML file, hooray!")
-
-  const $container = $('.container');
 
   //counts characters
   $('#tweetContent').keyup(function() {
@@ -11,22 +8,11 @@ $(document).ready(function() {
 
     if (length <= maxLength) {
       $countTag.html(length);
+      $countTag.css("color", "black")
     } else if (length > maxLength) {
       $countTag.html(maxLength - length);
+      $countTag.css("color", "red");
     }
   })
 
-
-  // Registers and pushes new Tweet
-  $container.find('form').on('submit', (e) => {
-    e.preventDefault();
-      const $form = $(e.target);
-      const $textbox = $form.find('#tweetContent')
-      const $tweet = $textbox.val();
-      const $newTweet = $('<article>').addClass('newTweet').text($tweet);
-
-
-      $container.append($newTweet);
-      // $container.append($('<div>"1, 2, 3"</div>'))
-  })
 });
