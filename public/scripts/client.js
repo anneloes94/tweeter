@@ -8,9 +8,45 @@ $(document).ready(function() {
       const $form = $(e.target);
       const $textbox = $form.find('#tweetContent')
       const $tweet = $textbox.val();
-      const $newTweet = $('<article>').addClass('tweet').text($tweet);
+      // const $newTweet = $('<article>').addClass('tweet').text($tweet);
 
+      $article = $('<article>').addClass('tweet')
+      $header = $('<header>').text("AUTHOR")
+      $p = $('<p>').text($tweet)
+      $footer = $('<footer>').text("7 days ago")
+      $article.append($header)
+              .append($p)
+              .append($footer);
 
-      $('main #tweetSection').append($newTweet);
+      // <article>
+      //   <header> 
+      //     Author
+      //   </header>
+      //   <p>
+      //   $newTweet
+      //   </p>
+      //   <footer>
+      //     7 days ago
+      //   </footer>
+      // </article>
+
+      $('main #tweetSection').append($article);
   })
+
+  // wteet element changes when hovering over it
+
+  console.log("Hello")
+
+  const $tweetArticle = $('<article>').find('.tweet')
+
+  $tweetArticle.hover(
+    function() {
+      let $tweetArticle = $('<article>').find('.tweet')
+      $tweetArticle.css('color', 'black')
+      console.log($(this))
+      $(this).css('box-shadow', '5px 5px lightskyblue')
+    }, function() {
+      $(this).css('article.tweet')
+    }
+  )
 });
