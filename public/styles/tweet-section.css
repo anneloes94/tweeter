@@ -27,6 +27,7 @@ article.tweet header span{
   opacity: 0;
 }
 
+/* HOVER DOESNT WORK? */
 article.tweet header span :hover{
   float: right;
   opacity: 0.8;

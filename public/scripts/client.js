@@ -13,6 +13,27 @@ $(document).ready(function() {
     }
   }
 
+  //listen for 'submit'
+  $('.container').find('form').on('submit', function(event) {
+    event.preventDefault();
+    const $form = $(event.target);
+    const $textbox = $form.find('#tweetContent')
+    const $tweet = $textbox.val();
+    const $newTweet = $('<article>').addClass('tweet').text($tweet);
+    // ...?
+    console.log('Form submitted, performing ajax call...');
+    // const data = $tweet.serialize()
+    // console.log(data)
+    $.ajax({
+      type: 'POST',
+      url: '/tweets', 
+      data: $(this).serialize()
+    })
+      .then(console.log("Yay!"))
+      // $button.replaceWith(morePostsHtml);
+
+  })
+
   // creates one tweet element
   const createTweetElement = (tweet) => {
     const {
@@ -51,5 +72,5 @@ $(document).ready(function() {
     $('main #tweetSection').append(tweetArray.join(''))
   }
   
-  renderTweets(data);
+  // renderTweets(data);
 })
