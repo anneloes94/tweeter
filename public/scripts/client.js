@@ -15,7 +15,6 @@ $(document).ready(function() {
 
   // creates one tweet element
   const createTweetElement = (tweet) => {
-    console.log("Going into createTweetElement")  ///
     const {
       name,
       avatars,
@@ -45,31 +44,22 @@ $(document).ready(function() {
  // takes in an array of tweet objects, stringifies and renders them 
   // aka makes presentable html sections out of tweet objects
   const renderTweets = function(tweets) {
-    console.log("going into renderTweets(). Tweets:")
-    console.log(tweets)
     const tweetArray = []
     for (tweet of tweets) {
       const tweetElement = createTweetElement(tweet)
-      console.log(tweetElement)                   ///
       tweetArray.push(tweetElement)
     }
 
-    //console.log(tweetArray.join("")) // still okay
     $('main #tweetSection').append(tweetArray.join(''))
   }
 
  // fetches tweets from /tweets page => unsure if this works?
   const loadTweets = () => {
-    console.log("Going into loadTweets()")
-    console.log($("tweets").serialize())            ///
-
     $.ajax({
       type: 'GET',
       url: '/tweets',
-      // data: $("tweets").serialize(),
       success: function (data) {
-        renderTweets(data)},
-      error: alert("Could not load initial tweets")
+        renderTweets(data)}
     })
   }
   
@@ -90,31 +80,15 @@ $(document).ready(function() {
     } else if ($tweet.length > maxLength) {
       alert("Your tweet exceeds the maximum amount of characters")
     } else {
-      // let name = $(this).siblings(".profile").find("#name") //??
-      // console.log("name ")
-      // console.log(name)
-      // let data = {
-      //   "user": {
-      //     name,
-      //     handle,alert("hello")
-      //     avatars
-      //   },
-      //   "content": {
-      //     "text": $(tweet).serialize()
-      //   },
-      //   "created_at": new Date()
-      // }
-
-
       $.ajax({
         type: 'POST',
         url: '/tweets', 
         "data": $textbox,
-        success: loadTweets(),
-        error: alert("Could not load tweets")
+        success: function() {
+          loadTweets()},
+        error: function() {     //sometimes problematic... remove?
+          alert("Could not load tweets")}
       })
     }
   })
-
-
 })
