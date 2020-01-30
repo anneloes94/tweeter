@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // returns the time between a given date and current dat
+  // returns the time between a given date and current date
   const timeBetween = (date) => {
     const msPerDay = 1000 * 60 * 60 * 24
     let currentDate = new Date()
@@ -11,37 +11,6 @@ $(document).ready(function() {
     } else {
       return Math.floor(diffInTime * 24) + " hours ago"
     }
-  }
-
-  //listen for 'submit'
-  $('.container').find('form').on('submit', function(event) {
-    event.preventDefault();
-    const $form = $(event.target);
-    const $textbox = $form.find('#tweetContent')
-    const $tweet = $textbox.val();
-    const $newTweet = $('<article>').addClass('tweet').text($tweet);
-    // ...?
-    console.log('Form submitted, performing ajax call...');
-    // const data = $tweet.serialize()
-    // console.log(data)
-    $.ajax({
-      type: 'POST',
-      url: '/tweets', 
-      data: $(this).serialize()
-    })
-      .then(console.log("Yay!"))
-      // $button.replaceWith(morePostsHtml);
-
-  })
-
-  // fetches tweets from /tweets page => unsure if this works?
-  const loadTweets = () => {
-    $.ajax({
-      type: 'GET',
-      url: '/tweets',
-      data: tweets.serialize()
-    })
-      .then(renderTweets(data), console.log("Boohoo"))
   }
 
   // creates one tweet element
@@ -67,20 +36,78 @@ $(document).ready(function() {
       <footer>
         ${timeBetween(new Date(created_at))}
       </footer>
+    </article>
     `)
     return tweetHTML
   }
-
-  // takes in an array of tweet objects, stringifies and renders them 
+  
+ // takes in an array of tweet objects, stringifies and renders them 
+  // aka makes presentable html sections out of tweet objects
   const renderTweets = function(tweets) {
     const tweetArray = []
     for (tweet of tweets) {
       const tweetElement = createTweetElement(tweet)
       tweetArray.push(tweetElement)
     }
-    
+
+    //console.log(tweetArray.join("")) // still okay
+    console.log($('main #tweetSection').append(tweetArray.join('')))
     $('main #tweetSection').append(tweetArray.join(''))
   }
+
+ // fetches tweets from /tweets page => unsure if this works?
+  const loadTweets = () => {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+      data: $("tweets").serialize()
+    })
+      .then((data) => renderTweets(data))
+  }
   
-  // renderTweets(data);
+ //render new tweets
+  loadTweets()
+
+  //listen for 'submit'
+  $('.container').find('form').on('submit', function(event) {
+    event.preventDefault();
+    const $form = $(event.target);
+    const $textbox = $form.find('#tweetContent')
+    const $tweet = $textbox.val();
+
+    console.log('Form submitted, performing ajax call...');
+    const maxLength = 140;
+    console.log($tweet)
+    if ($tweet === "") {
+      alert("Your tweet currently has no content")
+    } else if ($tweet.length > maxLength) {
+      alert("Your tweet exceeds the maximum amount of characters")
+    } else {
+      let name = $(this).siblings(".profile").find("#name") //??
+      // console.log("name ")
+      // console.log(name)
+      // let data = {
+      //   "user": {
+      //     name,
+      //     handle,
+      //     avatars
+      //   },
+      //   "content": {
+      //     "text": $(tweet).serialize()
+      //   },
+      //   "created_at": new Date()
+      // }
+
+      $.ajax({
+        type: 'POST',
+        url: '/tweets', 
+        "data": $tweet
+      })
+        // .then(loadTweets())
+        // //empty tweets and load again
+        // .catch(alert("Could not load tweets"))
+    }
+  })
+
+
 })
