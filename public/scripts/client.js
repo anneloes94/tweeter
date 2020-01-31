@@ -13,6 +13,12 @@ $(document).ready(function() {
     }
   }
 
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }  
+
   // creates one tweet element
   const createTweetElement = (tweet) => {
     const {
@@ -22,23 +28,37 @@ $(document).ready(function() {
     } = tweet.user
     const { text } = tweet.content
     const { created_at } = tweet
-  
-    const tweetHTML = (`
-    <article class="tweet">
-      <header>
-        <img src=${avatars} alt="avatar">
-        ${name}
-        <span>${handle}</span>
-      </header>
-      <p>
-        ${text}
-      </p>
-      <footer>
-        ${timeBetween(new Date(created_at))}
-      </footer>
-    </article>
-    `)
-    return tweetHTML
+
+    $footerText = timeBetween(new Date(created_at))
+
+    $p = $("<p>").text(text)
+    $footer = $("<footer>").html($footerText)
+    $header = $("<header>").html(`<img src=${avatars} alt="avatar">
+    ${name}<span>${handle}</span>`)
+    $article = $("<article>")
+    $article.addClass("tweet")
+
+
+    $article.append($header,$p,$footer)
+
+
+    // const tweetHTML = (`
+    // <article class="tweet">
+    //   <header>
+    //     <img src=${avatars} alt="avatar">
+    //     ${name}
+    //     <span>${handle}</span>
+    //   </header>
+    //   <p>
+    //     ${text}
+    //   </p>
+    //   <footer>
+    //     ${timeBetween(new Date(created_at))}
+    //   </footer>
+    // </article>
+    // `)
+
+    return '<article class="tweet">' + $article.html() + '</article>'
   }
   
  // takes in an array of tweet objects, stringifies and renders them 
@@ -53,7 +73,7 @@ $(document).ready(function() {
     $('main #tweetSection').append(tweetArray.join(''))
   }
 
- // fetches tweets from /tweets page => unsure if this works?
+ // fetches tweets from /tweets page
   const loadTweets = () => {
     $.ajax({
       type: 'GET',
@@ -85,9 +105,10 @@ $(document).ready(function() {
         url: '/tweets', 
         "data": $textbox,
         success: function() {
-          loadTweets()},
-        error: function() {     //sometimes problematic... remove?
-          alert("Could not load tweets")}
+          $('main #tweetSection').html("")    // clear all html
+          loadTweets()}                       // load tweets again
+        // error: function() {     //sometimes problematic... remove?
+        //   alert("Could not load tweets")}
       })
     }
   })
