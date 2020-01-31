@@ -1,9 +1,11 @@
 $(document).ready(function() {
   
-  $(`#arrows-nav`).click(function(event) {
+  $(`#arrow-nav`).click(function(event) {
     $(`.new-tweet`).slideToggle('fast')
     event.stopPropagation()
   })
+
+  $('.error-message').hide()
 
   // returns the time between a given date and current date
   const timeBetween = (date) => {
@@ -79,10 +81,14 @@ $(document).ready(function() {
     console.log('Form submitted, performing ajax call...');
     const maxLength = 140;
     if ($tweet === "") {
-      alert("Your tweet currently has no content")
+      $(".error-message").html("<strong>Warning! </strong>Your tweet currently has no content")
+      $('.error-message').show()
     } else if ($tweet.length > maxLength) {
-      alert("Your tweet exceeds the maximum amount of characters")
+      jQuery.fx.off = true
+      $(".error-message").html("<strong>Warning! </strong>Your tweet exceeds the maximum amount of characters")
+      $('.error-message').show()
     } else {
+      $('.error-message').hide()
       $.ajax({
         type: 'POST',
         url: '/tweets', 
