@@ -1,8 +1,7 @@
 $(document).ready(function() {
   
-  $(`#compose`).click(function(event) {
-    $(`#new-tweet`).scroll()
-    console.log("potato")
+  $(`#arrows-nav`).click(function(event) {
+    $(`.new-tweet`).slideToggle('fast')
     event.stopPropagation()
   })
 

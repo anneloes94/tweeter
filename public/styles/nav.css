@@ -18,7 +18,42 @@
 
 }
 
+i {
+  border: solid orange;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 
 .nav span{
   font-family: Bungee;
+}
+
+.write-tweet-nav {
+  margin-top: 0;
+  padding: 0;
+  float: right;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 40 px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#compose{
+  grid-area: 1 / 1 / 2 / 1;
+}
+
+#arrow-nav{
+  text-align: center;
+  grid-area: 2 / 1 / 2 / 1;
+}
+
+#arrow-nav:hover{
+
 }
