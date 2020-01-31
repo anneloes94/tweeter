@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  
+  $(`#compose`).click(function(event) {
+    $(`#new-tweet`).scroll()
+    console.log("potato")
+    event.stopPropagation()
+  })
+
   // returns the time between a given date and current date
   const timeBetween = (date) => {
     const msPerDay = 1000 * 60 * 60 * 24
@@ -12,12 +19,6 @@ $(document).ready(function() {
       return Math.floor(diffInTime * 24) + " hours ago"
     }
   }
-
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }  
 
   // creates one tweet element
   const createTweetElement = (tweet) => {
@@ -40,23 +41,6 @@ $(document).ready(function() {
 
 
     $article.append($header,$p,$footer)
-
-
-    // const tweetHTML = (`
-    // <article class="tweet">
-    //   <header>
-    //     <img src=${avatars} alt="avatar">
-    //     ${name}
-    //     <span>${handle}</span>
-    //   </header>
-    //   <p>
-    //     ${text}
-    //   </p>
-    //   <footer>
-    //     ${timeBetween(new Date(created_at))}
-    //   </footer>
-    // </article>
-    // `)
 
     return '<article class="tweet">' + $article.html() + '</article>'
   }
@@ -107,8 +91,6 @@ $(document).ready(function() {
         success: function() {
           $('main #tweetSection').html("")    // clear all html
           loadTweets()}                       // load tweets again
-        // error: function() {     //sometimes problematic... remove?
-        //   alert("Could not load tweets")}
       })
     }
   })

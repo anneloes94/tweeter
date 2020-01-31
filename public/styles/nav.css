@@ -11,6 +11,13 @@
   color: #FFFFFF;
 }
 
+#compose {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #FFFFFF;
+  float: right
+
+}
+
 
 .nav span{
   font-family: Bungee;
