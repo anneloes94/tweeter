@@ -67,7 +67,7 @@ $(document).ready(function() {
     const tweetArray = []
     for (tweet of tweets) {
       const tweetElement = createTweetElement(tweet)
-      tweetArray.push(tweetElement)
+      tweetArray.unshift(tweetElement)
     }
 
     $('main #tweetSection').append(tweetArray.join(''))
