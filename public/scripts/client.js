@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   $(`#arrow-nav`).click(function(event) {
     $(`.new-tweet`).slideToggle('fast')
     event.stopPropagation()
@@ -33,10 +33,17 @@ $(document).ready(function() {
 
     $footerText = timeBetween(new Date(created_at))
 
+    // $like = './public/images/like.png'
+    // $retweet = './public/images/retweet.png'
+    // $flag = 'public/images/flag.png'
+
     $p = $("<p>").text(text)
-    $footer = $("<footer>").html($footerText)
+    $footerDiv1 = $("<div>").html($footerText);
+    // $footerDiv2 = $("<div>").html(`<img src=${flag} alt="flag">`, `<img src=${retweet} alt="retweet">`, `<img src=${retweet} alt="retweet">`, `<img src=${like} alt="like">`)
+    // $footerDiv2 = $("<div>").html(`<img src='$flag' alt="flag">`)
+    $footer = $("<footer>").append($footerDiv1)
     $header = $("<header>").html(`<img src=${avatars} alt="avatar">
-    ${name}<span>${handle}</span>`)
+    ${name}<span id="username">${handle}</span>`)
     $article = $("<article>")
     $article.addClass("tweet")
 

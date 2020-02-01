@@ -38,20 +38,11 @@ i {
   margin-top: 0;
   padding: 0;
   float: right;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 40 px;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-
-#compose{
-  grid-area: 1 / 1 / 2 / 1;
+  position: relative;
 }
 
 #arrow-nav{
   text-align: center;
-  grid-area: 2 / 1 / 2 / 1;
   bottom: 0;
   position: relative;
   transition: bottom ease 0.5s;
