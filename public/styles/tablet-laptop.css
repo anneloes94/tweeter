@@ -1,0 +1,28 @@
+@media only screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  header.profile {
+    margin-top: 140px;
+    grid-area: 1 / 1 / 2 / 2;
+    width: 50%;
+    height: 18em;
+    padding-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .new-tweet {
+    margin-top: 140px;
+    grid-area: 1 / 2 / 2 / 3;
+  }
+
+  #tweet-section {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+}
