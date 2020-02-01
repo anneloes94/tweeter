@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
   $(`#arrow-nav`).click(function(event) {
-    $(`.new-tweet`).slideToggle('fast')
+    $(`.new-tweet`).slideToggle('fast', function() {
+      $(`#tweetContent`).focus();
+    })
     event.stopPropagation()
   })
 
