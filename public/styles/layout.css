@@ -8,12 +8,11 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
-
 }
+
 nav {
   font-family: 'Bungee', cursive;
 }
-
 
 body {
   color: #545149;
@@ -28,7 +27,3 @@ main {
   margin-right: auto;
   margin-left: auto;
 }
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

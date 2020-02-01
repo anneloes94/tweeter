@@ -15,7 +15,6 @@
   font-family: 'Source Sans Pro', sans-serif;
   color: #FFFFFF;
   float: right
-
 }
 
 i {
@@ -30,7 +29,7 @@ i {
   -webkit-transform: rotate(45deg);
 }
 
-.nav span{
+.nav span {
   font-family: Bungee;
 }
 
@@ -41,14 +40,14 @@ i {
   position: relative;
 }
 
-#arrow-nav{
+#arrow-nav {
   text-align: center;
   bottom: 0;
   position: relative;
   transition: bottom ease 0.5s;
 }
 
-#arrow-nav:hover{
+#arrow-nav:hover {
   bottom: -10px;
   cursor: pointer;
 }
