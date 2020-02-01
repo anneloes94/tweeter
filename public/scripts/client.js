@@ -33,15 +33,14 @@ $(document).ready(function() {
 
     $footerText = timeBetween(new Date(created_at))
 
-    // $like = './public/images/like.png'
-    // $retweet = './public/images/retweet.png'
-    // $flag = 'public/images/flag.png'
+    $like = 'images/Like.png'
+    $retweet = 'images/Retweet.png'
+    $flag = 'images/Flag.png'
 
     $p = $("<p>").text(text)
-    $footerDiv1 = $("<div>").html($footerText);
-    // $footerDiv2 = $("<div>").html(`<img src=${flag} alt="flag">`, `<img src=${retweet} alt="retweet">`, `<img src=${retweet} alt="retweet">`, `<img src=${like} alt="like">`)
-    // $footerDiv2 = $("<div>").html(`<img src='$flag' alt="flag">`)
-    $footer = $("<footer>").append($footerDiv1)
+    $footerDiv1 = $('<div id="time">').html($footerText);
+    $footerDiv2 = $('<div id="social-links">').html(`<img src=` + $flag + ` alt="flag">` + `<img src=` + $retweet + ` alt="retweet">` + `<img src=` + $like + ` alt="like">`)
+    $footer = $("<footer>").append($footerDiv1, $footerDiv2)
     $header = $("<header>").html(`<img src=${avatars} alt="avatar">
     ${name}<span id="username">${handle}</span>`)
     $article = $("<article>")

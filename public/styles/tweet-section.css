@@ -12,6 +12,14 @@
   opacity: 0.8;
 }
 
+.tweet:hover #username {
+  display: block;
+}
+
+.tweet:hover #social-links {
+  display: block;
+}
+
 article.tweet:hover {
   opacity: 1;
   box-shadow: 5px 5px #5788AB;
@@ -22,16 +30,11 @@ article.tweet header {
   background-color: inherit;
 }
 
-article.tweet header span {
-  /* visibility: hidden; */
+#username {
+  display: none;
   float: right;
   opacity: 1;
 }
-
-/* article.tweet header span#username:hover {
-  visibility: visible;
-  /* opacity: 1;
-} */
 
 article.tweet header img {
   height: 50;
@@ -45,6 +48,9 @@ article.tweet p {
 }
 
 article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 0.5em 1em;
   border-top: solid;
   border-width: 0.15em;
@@ -52,5 +58,8 @@ article.tweet footer {
   font-weight: 300;
 }
 
+#social-links {
+  display: none;
+}
 
 
