@@ -55,7 +55,7 @@ $(document).ready(function() {
       tweetArray.unshift(tweetElement)
     }
 
-    $('main #tweetSection').append(tweetArray.join(''))
+    $('main #tweet-section').append(tweetArray.join(''))
   }
 
  // fetches tweets from /tweets page
@@ -94,7 +94,7 @@ $(document).ready(function() {
         url: '/tweets', 
         "data": $textbox,
         success: function() {
-          $('main #tweetSection').html("")    // clear all html
+          $('main #tweet-section').html("")    // clear all html
           loadTweets()}                       // load tweets again
       })
     }
