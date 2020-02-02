@@ -6,8 +6,9 @@ It has the following functionalities: reading Tweets, adding Tweet texts (up unt
 
 ## Final Product
 
-!["Overview of the one-pager: drafting a Tweet, seeing your account, and seeing other users's Tweets"] (https://raw.githubusercontent.com/anneloes94/tweeter/master/docs/MakingTweet.png)
-!["Overview of Tweeter on <1024px screen"] (https://raw.githubusercontent.com/anneloes94/tweeter/master/docs/MobileVersion.png)
+![`Overview of the one-pager: drafting a Tweet, seeing your account, and seeing other users's Tweets`](https://raw.githubusercontent.com/anneloes94/tweeter/master/docs/MakingTweet.png)
+
+![`Overview of Tweeter on <1024px screen`](https://raw.githubusercontent.com/anneloes94/tweeter/master/docs/MobileVersion.png)
 
 ## Dependencies
 
