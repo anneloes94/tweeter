@@ -3,6 +3,10 @@
   border-top: 140px;
 }
 
+#tweet-section h3 {
+  text-align: center;
+}
+
 .tweet {
   border-style: solid;
   border-width: 0.3em;

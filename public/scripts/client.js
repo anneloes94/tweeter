@@ -21,6 +21,10 @@ $(document).ready(function() {
       return Math.floor(diffInTime / 365) + " years ago";
     } else if (diffInTime >= 1) {
       return Math.floor(diffInTime) + " days ago";
+    } else if (diffInTime * 24 * 60 <=1) {
+      return Math.floor(diffInTime * 24 * 60 * 60) + " seconds ago";
+    } else if (diffInTime * 24 <=1) {
+      return Math.floor(diffInTime * 24 * 60) + " minutes ago";
     } else {
       return Math.floor(diffInTime * 24) + " hours ago";
     };

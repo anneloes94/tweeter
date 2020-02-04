@@ -3,14 +3,15 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
+    grid-column-gap: 25px;
     grid-row-gap: 0px;
   }
 
   header.profile {
     margin-top: 140px;
     grid-area: 1 / 1 / 2 / 2;
-    width: 50%;
+    width: 100%;
+    max-width: 400px;
     height: 18em;
     padding-top: 5%;
     margin-left: auto;
@@ -18,13 +19,21 @@
   }
 
   .new-tweet {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .container {
     margin-top: 140px;
     grid-area: 1 / 2 / 2 / 3;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 95%;
+    max-width: 800px;
+    /* margin-right: auto;
+    margin-left: auto; */
   }
 
   #tweet-section {
     grid-area: 2 / 2 / 3 / 3;
-    margin-top: 140px;
   }
 }
