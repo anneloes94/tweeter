@@ -7,6 +7,8 @@ $(document).ready(function() {
     event.stopPropagation();
   })
 
+  $(`.new-tweet`).hide();
+
   $('.error-message').hide();
 
   // returns the time between a given date and current date

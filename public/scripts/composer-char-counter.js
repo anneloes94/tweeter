@@ -6,11 +6,11 @@ $(document).ready(function() {
     const maxLength = 140;
     let $countTag = $(this).siblings(".counter");
 
+    $countTag.html(maxLength - length);
+
     if (length <= maxLength) {
-      $countTag.html(length);
       $countTag.css("color", "black");
     } else if (length > maxLength) {
-      $countTag.html(maxLength - length);
       $countTag.css("color", "red");
     }
   });

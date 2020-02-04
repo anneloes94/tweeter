@@ -20,9 +20,11 @@
   .new-tweet {
     margin-top: 140px;
     grid-area: 1 / 2 / 2 / 3;
+    word-wrap: break-word;
   }
 
   #tweet-section {
     grid-area: 2 / 2 / 3 / 3;
+    margin-top: 140px;
   }
 }
