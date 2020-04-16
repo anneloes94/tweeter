@@ -114,7 +114,7 @@ $(document).ready(function() {
           // load tweets again
           loadTweets();
         }
-      });
+      }).then(setTimeout($textbox.val(''), 1000))
     };
   });
 });
