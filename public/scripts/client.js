@@ -94,7 +94,6 @@ $(document).ready(function() {
     const $textbox = $form.find('#tweetContent')
     const $tweet = $textbox.val();
 
-    console.log('Form submitted, performing ajax call...');
     const maxLength = 140;
     if ($tweet === "") {
       $(".error-message").html("<strong>Warning! </strong>Your tweet currently has no content");
@@ -110,10 +109,12 @@ $(document).ready(function() {
         url: '/tweets', 
         "data": $textbox,
         success: function() {
-          $('main #tweet-section').html("");    // clear all html
-          loadTweets();                       // load tweets again
+          // clear all html
+          $('main #tweet-section').html("");
+          // load tweets again
+          loadTweets();
         }
-      });
+      }).then(setTimeout($textbox.val(''), 1000))
     };
   });
 });
