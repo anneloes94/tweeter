@@ -94,7 +94,6 @@ $(document).ready(function() {
     const $textbox = $form.find('#tweetContent')
     const $tweet = $textbox.val();
 
-    console.log('Form submitted, performing ajax call...');
     const maxLength = 140;
     if ($tweet === "") {
       $(".error-message").html("<strong>Warning! </strong>Your tweet currently has no content");
