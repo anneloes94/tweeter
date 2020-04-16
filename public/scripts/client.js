@@ -110,8 +110,10 @@ $(document).ready(function() {
         url: '/tweets', 
         "data": $textbox,
         success: function() {
-          $('main #tweet-section').html("");    // clear all html
-          loadTweets();                       // load tweets again
+          // clear all html
+          $('main #tweet-section').html("");
+          // load tweets again
+          loadTweets();
         }
       });
     };
